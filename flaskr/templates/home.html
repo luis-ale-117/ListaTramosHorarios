@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{%block title%}Motorcycles.inc{%endblock%}
+{%block content%}
+<div class="container">
+    <h1>Motorcycles</h1>
+    <button type="button" id="update-button" class="btn btn-secondary">Update</button>
+    <table id="schedule" class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Hour</th>
+            <th scope="col"># Motorcycles</th>
+          </tr>
+        </thead>
+        <tbody id="schedule_body">
+            {%for hour, number in motorcycles_schedule.items()%}
+            {%if number == 0%}
+            <tr class="tab table-danger">
+            {%else%}
+            <tr class="tab">
+            {%endif%}
+                <td>{{hour}}</td>
+                <td>{{number}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+</div>
+{%endblock%}
